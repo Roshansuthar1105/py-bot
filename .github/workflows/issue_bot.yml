@@ -1,5 +1,3 @@
-
-
 name: Issue Bot
 
 on:
@@ -24,6 +22,6 @@ jobs:
       - name: Run bot
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          GITHUB_REPOSITORY: ${{ github.repository }}   # <-- make sure this is included
+          ISSUE_NUMBER: ${{ github.event.issue.number }}  # <-- also needed
         run: python bot.py
