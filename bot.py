@@ -3,7 +3,7 @@ import os
 
 # Load GitHub token
 token = os.getenv("GH_TOKEN")
-repo_name = os.getenv("Roshansuthar1105/py-bot")  # e.g., "username/repo"
+repo_name = os.getenv("https://github.com/Roshansuthar1105/py-bot/")  # e.g., "username/repo"
 issue_number = os.getenv("ISSUE_NUMBER")
 
 # Authenticate
