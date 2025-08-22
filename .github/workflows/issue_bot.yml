@@ -2,11 +2,12 @@ name: Issue Bot
 
 on:
   issues:
-    types: [opened]
+    types: [opened]   # runs only when a new issue is created
 
 jobs:
   run-bot:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -21,7 +22,7 @@ jobs:
 
       - name: Run bot
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}   # <-- make sure this is included
-          ISSUE_NUMBER: ${{ github.event.issue.number }}  # <-- also needed
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}          # secret you created
+          REPO_NAME: ${{ github.repository }}        # passes "username/repo"
+          ISSUE_NUMBER: ${{ github.event.issue.number }} # passes issue number
         run: python bot.py
